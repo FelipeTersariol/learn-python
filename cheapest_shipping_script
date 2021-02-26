@@ -1,0 +1,47 @@
+def cheapest_shipping(libs):
+
+  ground_shipping = 0
+  premium_shipping = 125
+  drone_shipping = 0
+
+  if libs <= 0:
+    print("Não há carga a ser transportada.")
+  else:
+    if libs <= 2:
+      ground_shipping = (libs * 1.50) + 20
+      drone_shipping = libs * 4.50
+      print("Ground shipping: " + str(ground_shipping))
+      print("Drone shipping: " + str(drone_shipping))
+    elif libs > 2 and libs <= 6:
+      ground_shipping = (libs * 3) + 20
+      drone_shipping = libs * 9
+      print("Ground shipping: " + str(ground_shipping))
+      print("Drone shipping: " + str(drone_shipping))
+    elif libs > 6 and libs <= 10:
+      ground_shipping = (libs * 4) + 20
+      drone_shipping = libs * 12
+      print("Ground shipping: " + str(ground_shipping))
+      print("Drone shipping: " + str(drone_shipping))
+    else:
+      ground_shipping = (libs * 4.75) + 20
+      drone_shipping = libs * 14.25
+      print("Ground shipping: " + str(ground_shipping))
+      print("Drone shipping: " + str(drone_shipping))
+
+// which one is the cheapest?
+
+    if premium_shipping <= ground_shipping or premium_shipping <= drone_shipping:
+      print("Premium Shipping is the cheapest. Price: " + str(premium_shipping))
+    elif ground_shipping < drone_shipping:
+      print("Ground Shipping is the cheapest. Price: " + str(ground_shipping))
+    elif drone_shipping < ground_shipping:
+      print("Drone Shipping is the cheapest. Price: " + str(drone_shipping))
+    elif drone_shipping == ground_shipping:
+      print("Drone and Ground Shipping are the same price. Both cheaper than premium. Price: " + str(drone_shipping))
+    else:
+      print("Erro.")
+
+
+lib = 25
+
+cheapest_shipping(lib)
